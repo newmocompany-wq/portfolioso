@@ -1,0 +1,36 @@
+<?php
+
+if (! function_exists('apiResponce')) {
+    function apiResponce($status, $message, $data = null)
+    {
+        $result = [
+            'status' => $status,
+            'message' => $message,
+        ];
+
+        if ($data !== null) {
+            $result['data'] = $data;
+        }
+
+        return response()->json($result, $status);
+    }
+}
+
+if (! function_exists('mediaUrl')) {
+    /**
+     * Resolve a stored media value to a usable URL.
+     * Absolute URLs are returned untouched; relative paths are served from storage.
+     */
+    function mediaUrl($path)
+    {
+        if (! $path) {
+            return null;
+        }
+
+        if (is_string($path) && str_starts_with($path, 'http')) {
+            return $path;
+        }
+
+        return secure_asset($path);
+    }
+}

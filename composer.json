@@ -10,8 +10,11 @@
     "license": "MIT",
     "require": {
         "php": "^8.3",
+        "cviebrock/eloquent-sluggable": "^13.0",
         "laravel/framework": "^13.8",
-        "laravel/tinker": "^3.0"
+        "laravel/sanctum": "^4.3",
+        "laravel/tinker": "^3.0",
+        "spatie/laravel-one-time-passwords": "^1.1"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
@@ -28,7 +31,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "files": [
+            "app/Http/Helpers/ApiResponce.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
