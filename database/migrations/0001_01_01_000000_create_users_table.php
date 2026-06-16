@@ -13,18 +13,46 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+
+            // Identity
             $table->string('name');
+            $table->string('title');
+            $table->string('avatar');
+
+            // Academic affiliation
+            $table->string('department')->nullable();
+            $table->string('university')->nullable();
+
+            // Contact
             $table->string('email')->unique();
+            $table->string('phone');
+            $table->string('office')->nullable();
+            $table->string('office_hours')->nullable();
+            $table->string('address')->nullable();
+
+            // Files
+            $table->string('cv')->nullable();
+
+            // Auth
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+
+            // Social links
+            $table->json('social_links');
+
+            // Public contact email
+            $table->string('contact_email')->unique();
+
             $table->timestamps();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
-            $table->string('email')->primary();
+            $table->id();
+            $table->string('email')->index();
             $table->string('token');
-            $table->timestamp('created_at')->nullable();
+            $table->timestamp('expires_at');
+            $table->timestamps();
         });
 
         Schema::create('sessions', function (Blueprint $table) {
