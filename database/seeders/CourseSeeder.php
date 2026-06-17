@@ -27,6 +27,7 @@ class CourseSeeder extends Seeder
                     'pdf' => $lecture['pdf'] ?? null,
                     'video_url' => $lecture['videoUrl'] ?? null,
                     'youtube_url' => $lecture['youtubeUrl'] ?? null,
+                    'note_url'=>'https://mohanadahmed.me'?? null ,
                     'date' => $lecture['date'] ?? null,
                 ]);
             }

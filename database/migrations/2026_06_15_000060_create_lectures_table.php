@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('pdf')->nullable();
             $table->string('video_url')->nullable();
             $table->string('youtube_url')->nullable();
+            $table->string('note_url')->nullable();
             $table->date('date')->nullable();
             $table->timestamps();
         });

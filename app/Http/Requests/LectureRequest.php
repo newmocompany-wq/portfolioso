@@ -20,9 +20,10 @@ class LectureRequest extends FormRequest
         $data = [
             'course_id' => 'required|integer|exists:courses,id',
             'title' => 'required|string|min:3|max:255',
-            'pdf' => 'nullable',
+            'pdf' => 'ullable|string|max:255',
             'video_url' => 'nullable|string|max:255',
             'youtube_url' => 'nullable|string|max:255',
+            'note_url' => 'nullable|string|max:255' , 
             'date' => 'nullable|date',
         ];
 

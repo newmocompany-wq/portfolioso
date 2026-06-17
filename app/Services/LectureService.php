@@ -25,9 +25,7 @@ class LectureService
 
     public function store($data)
     {
-        if (isset($data['pdf']) && $data['pdf'] instanceof UploadedFile) {
-            $data['pdf'] = $this->imageManager->uploadSingleImage($data['pdf'], 'lectures', 'public');
-        }
+        
 
         return $this->lectureRepository->store($data);
     }

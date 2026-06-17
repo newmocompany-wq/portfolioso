@@ -16,6 +16,7 @@ class Lecture extends Model
         'pdf',
         'video_url',
         'youtube_url',
+        'note_url',
         'date',
     ];
 
