@@ -38,7 +38,7 @@ class UserRequest extends FormRequest
             'office' => 'nullable|string|max:255',
             'office_hours' => 'nullable|string|max:255',
             'address' => 'nullable|string|max:255',
-            'cv' => 'nullable|string|max:255',
+            'cv' => 'nullable|file|mimes:pdf|max:5120',
             'social_links' => 'required|array',
             'password' => 'required|string|min:8',
         ];

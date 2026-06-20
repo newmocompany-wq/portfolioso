@@ -13,7 +13,10 @@ class CourseRepository
 
     public function getCourse($id)
     {
-        return Course::withCount('lectures')->find($id);
+        return Course::query()
+            ->withCount('lectures')
+            ->with('lectures')
+            ->findOrFail($id);
     }
 
     public function store($data)

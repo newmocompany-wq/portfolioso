@@ -23,7 +23,7 @@ class ResearchRequest extends FormRequest
             'abstract' => 'required|string|min:3',
             'authors' => 'required|array',
             'authors.*' => 'string',
-            'keywords' => 'nullable|array',
+            'keywords' => 'required|array',
             'keywords.*' => 'string',
             'journal' => 'nullable|string|max:255',
             'conference' => 'nullable|string|max:255',

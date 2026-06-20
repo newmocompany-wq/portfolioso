@@ -134,14 +134,12 @@ Route::middleware('auth:sanctum')->prefix('admin')->group(function () {
     // About
     Route::controller(AboutController::class)->prefix('about')->group(function () {
         Route::get('/', 'index');
-        Route::post('/store', 'store');
         Route::put('/update', 'update');
     });
 
     // Settings
     Route::controller(SettingController::class)->prefix('setting')->group(function () {
         Route::get('/', 'index');
-        Route::post('/store', 'store');
         Route::put('/update', 'update');
     });
 

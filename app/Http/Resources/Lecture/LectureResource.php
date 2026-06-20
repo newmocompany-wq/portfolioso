@@ -19,7 +19,7 @@ class LectureResource extends JsonResource
             'pdf' => mediaUrl($this->pdf),
             'video_url' => $this->video_url,
             'youtube_url' => $this->youtube_url,
-            'note_url'=>$this->note_url , 
+            'note_url'=>$this->note_url ,
             'date' => $this->date?->toDateString(),
         ];
     }

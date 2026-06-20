@@ -19,7 +19,6 @@ class UserResource extends JsonResource
             'avatar' => mediaUrl($this->avatar),
             'department' => $this->department,
             'university' => $this->university,
-            'email' => $this->email,
             'phone' => $this->phone,
             'office' => $this->office,
             'office_hours' => $this->office_hours,

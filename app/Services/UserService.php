@@ -50,6 +50,7 @@ class UserService
     public function update($data)
     {
         $user = $this->getUserAuth();
+
         if (! $user) {
             return false;
         }
@@ -61,7 +62,21 @@ class UserService
                 'public',
                 $user->avatar
             );
+
             if (! $data['avatar']) {
+                return false;
+            }
+        }
+
+        if (isset($data['cv']) && $data['cv'] instanceof UploadedFile) {
+            $data['cv'] = $this->imageManager->uploadCv(
+                $data['cv'],
+                'cvs',
+                'public',
+                $user->cv
+            );
+
+            if (! $data['cv']) {
                 return false;
             }
         }

@@ -47,4 +47,24 @@ class ImageManager
             Storage::disk($disk)->delete($imagePath);
         }
     }
+
+    public function uploadCv($file, $path, $disk = 'public', $oldPath = null)
+    {
+        if ($file) {
+
+            if ($oldPath) {
+                $this->deleteImageFromLocal($oldPath, $disk);
+            }
+
+            $fileName = 'cv.'.$file->getClientOriginalExtension();
+
+            return $file->storeAs(
+                "uploads/$path",
+                $fileName,
+                ['disk' => $disk]
+            );
+        }
+
+        return false;
+    }
 }
