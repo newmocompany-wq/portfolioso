@@ -2,7 +2,7 @@
 
 namespace App\Utils;
 
-use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ImageManager
@@ -32,20 +32,19 @@ class ImageManager
 
     }
 
-    public function deleteImageFromLocal($imagePath)
+    public function deleteImageFromLocal($imagePath, $disk = 'public')
     {
         if (is_array($imagePath)) {
+
             foreach ($imagePath as $path) {
-                if (File::exists($path)) {
-                    File::delete($path);
-                }
+                Storage::disk($disk)->delete($path);
             }
 
             return;
         }
 
-        if ($imagePath && File::exists($imagePath)) {
-            File::delete($imagePath);
+        if ($imagePath) {
+            Storage::disk($disk)->delete($imagePath);
         }
     }
 }

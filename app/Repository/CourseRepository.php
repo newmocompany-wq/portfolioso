@@ -8,12 +8,12 @@ class CourseRepository
 {
     public function getCourses()
     {
-        return Course::with('lectures')->orderByDesc('id')->get();
+        return Course::withCount('lectures')->orderByDesc('id')->get();
     }
 
     public function getCourse($id)
     {
-        return Course::with('lectures')->find($id);
+        return Course::withCount('lectures')->find($id);
     }
 
     public function store($data)

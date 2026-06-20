@@ -22,12 +22,14 @@ class CourseRequest extends FormRequest
             'description' => 'required|string|min:3',
             'objectives' => 'nullable|array',
             'objectives.*' => 'string',
-            'cover' => 'nullable',
+            'cover' => 'required|image|max:2025',
         ];
 
         if ($this->isMethod('PUT')) {
             $data['title'] = 'sometimes|string|min:3|max:255';
             $data['description'] = 'sometimes|string|min:3';
+            $data['cover'] = 'sometimes|image|max:1025';
+
         }
 
         return $data;

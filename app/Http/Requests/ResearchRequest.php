@@ -30,7 +30,7 @@ class ResearchRequest extends FormRequest
             'doi' => 'nullable|string|max:255',
             'link' => 'nullable|string|max:255',
             'pdf' => 'nullable',
-            'cover' => 'nullable',
+            'cover' => 'required|image|max:1025',
         ];
 
         if ($this->isMethod('PUT')) {
@@ -38,6 +38,7 @@ class ResearchRequest extends FormRequest
             $data['year'] = 'sometimes|integer|min:1900|max:2100';
             $data['abstract'] = 'sometimes|string|min:3';
             $data['authors'] = 'sometimes|array';
+            $data['cover'] = 'sometimes|image|max:1025';
         }
 
         return $data;

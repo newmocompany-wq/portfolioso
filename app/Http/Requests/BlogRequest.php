@@ -21,7 +21,7 @@ class BlogRequest extends FormRequest
             'title' => 'required|string|min:3|max:255',
             'excerpt' => 'required|string|max:500',
             'content' => 'required|string|min:3',
-            'cover' => 'nullable',
+            'cover' => 'required|image|max:1025',
             'date' => 'nullable|date',
         ];
 
@@ -29,6 +29,7 @@ class BlogRequest extends FormRequest
             $data['title'] = 'sometimes|string|min:3|max:255';
             $data['excerpt'] = 'sometimes|string|max:500';
             $data['content'] = 'sometimes|string|min:3';
+            $data['cover'] = 'sometimes|image|max:1025';
         }
 
         return $data;
